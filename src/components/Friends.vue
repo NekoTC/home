@@ -5,19 +5,26 @@
     </div>
     <!-- 友链 -->
     <div class="clear" id="links">
-        <div class="links">
+      <div class="links">
+        <div class="link-all">
           <div v-if="loading">加载中...</div>
-          <div v-else>
-            <div v-for="link in links" :key="link.id" class="item">
-              <a :href="link.url" target="_blank">
-                <div class="avatar"><img :src="link.avatar" width="64" height="64"></div>
-                <h5>{{ link.name }}</h5>
-                <p>{{ link.description }}</p>
-              </a>
-            </div>
-          </div>
+          <el-row class="link-all" :gutter="20">
+            <el-col v-for="(item, index) in site" :span="8" :key="item">
+              <div
+                class="item cards"
+                :style="index < 3 ? 'margin-bottom: 20px' : null"
+                @click="link.url"
+              >
+                <Icon size="32">
+                  <component :is="link.avatar" />
+                </Icon>
+                <span class="name text-hidden">{{ link.name }}</span>
+              </div>
+            </el-col>
+          </el-row>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -57,4 +64,5 @@ export default {
 <style lang="scss" scoped>
 @import url('src/components/css/h.9c69ed6c.css');
 @import url('src/components/css/nekotora.99cf6f8c.css');
+@import url('src/style/style.scss');
 </style>
