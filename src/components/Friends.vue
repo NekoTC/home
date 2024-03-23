@@ -4,16 +4,23 @@
       <h2 class="chtitle">我的<span>好朋友</span>们</h2>
       <!-- 友链 -->
       <div class="clear" id="links">
-        <div v-if="loading">加载中...</div>
-        <div v-else>
-          <div v-for="link in links" :key="link.id" class="item">
-            <a :href="link.url" target="_blank">
-              <div class="avatar"><img :src="link.avatar"></div>
-              <div class="inner">
-                <h5>{{ link.name }}</h5>
-                <p>{{ link.description }}</p>
+        <div class="links">
+          <div class="line">
+            <div class="title">友情链接</div>
+          </div>
+          <div class="link-all">
+            <div v-if="loading">加载中...</div>
+            <div v-else>
+              <div v-for="link in links" :key="link.id" class="item">
+                <a :href="link.url" target="_blank">
+                  <div class="avatar"><img :src="link.avatar"></div>
+                  <div class="inner">
+                    <h5 class="name">{{ link.name }}</h5>
+                    <p>{{ link.description }}</p>
+                  </div>
+                </a>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -62,37 +69,17 @@ export default {
     display: flex;
     align-items: center;
     animation: fade 0.5s;
+
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
       text-shadow: 0 0 5px #00000050;
     }
   }
-  .swiper {
-    left: -10px;
-    width: calc(100% + 20px);
-    padding: 5px 10px 0;
-    z-index: 0;
-    .swiper-slide {
-      height: 100%;
-    }
-    .swiper-pagination {
-      position: static;
-      margin-top: 4px;
-      :deep(.swiper-pagination-bullet) {
-        background-color: #fff;
-        width: 18px;
-        height: 4px;
-        border-radius: 4px;
-        transition: opacity 0.3s;
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
-  }
+
   .link-all {
     height: 220px;
+
     .item {
       height: 100px;
       width: 100%;
@@ -117,25 +104,6 @@ export default {
         font-size: 1.1rem;
         margin-left: 8px;
       }
-      @media (min-width: 720px) and (max-width: 820px) {
-        .name {
-          display: none;
-        }
-      }
-      @media (max-width: 720px) {
-        height: 80px;
-      }
-      @media (max-width: 460px) {
-        flex-direction: column;
-        .name {
-          font-size: 1rem;
-          margin-left: 0;
-          margin-top: 8px;
-        }
-      }
-    }
-    @media (max-width: 720px) {
-      height: 180px;
     }
   }
 }
