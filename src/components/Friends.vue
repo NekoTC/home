@@ -12,10 +12,8 @@
             <div v-for="link in links" :key="link.id" class="item">
               <a :href="link.url" target="_blank">
                 <div class="avatar"><img :src="link.avatar" width="64" height="64"></div>
-                <div class="item">
                   <h5>{{ link.name }}</h5>
                   <p>{{ link.description }}</p>
-                </div>
               </a>
             </div>
           </div>
