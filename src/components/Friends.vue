@@ -9,11 +9,6 @@
             <div v-else>
               <div v-for="link in links" :key="link.id" class="item">
                 <a :href="link.url" target="_blank">
-                  <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
-                  <div class="item">
-                    <h5 class="name centered">{{ link.name }}</h5>
-                    <p class="centered">{{ link.description }}</p>
-                  </div>
                   <div
                     class="item cards"
                     :style="index < 3 ? 'margin-bottom: 20px' : null"
@@ -21,6 +16,7 @@
                   >
                     <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
                     <span class="name text-hidden">{{ link.name }}</span>
+                    <p>{{ link.description }}</p>
                   </div>
                 </a>
               </div>
