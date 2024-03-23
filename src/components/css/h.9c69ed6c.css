@@ -504,9 +504,9 @@ ul.skill li .progress div {
 
 .gate .links .item .avatar {
     float: left;
-    height: 60px;
+    height: 120px;
     line-height: 60px;
-    width: 60px;
+    width: 120px;
     border-radius: 100%;
     text-align: center;
     margin-right: 15px;
