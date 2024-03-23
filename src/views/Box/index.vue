@@ -32,7 +32,7 @@
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import TimeCapsule from "@/components/TimeCapsule.vue";
-import MoreContent from "@/components/MoreContent.vue";
+import MoreContent from "@/components/Friends.vue";
 
 const store = mainStore();
 const closeShow = ref(false);
