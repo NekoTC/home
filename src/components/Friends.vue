@@ -9,8 +9,12 @@
             <div v-else>
               <div v-for="link in links" :key="link.id" class="item">
                 <a :href="link.url" target="_blank">
-                  <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
-                  <div class="item">
+                  <div
+                    class="item cards"
+                    :style="index < 3 ? 'margin-bottom: 20px' : null"
+                    @click="jumpLink(item)"
+                  >
+                    <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
                     <h5 class="name centered">{{ link.name }}</h5>
                     <p class="centered">{{ link.description }}</p>
                   </div>
@@ -57,17 +61,88 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.link-all {
-  height: 220px;
-  .item {
-    height: 100px;
-    width: 100%;
+.links {
+  .line {
+    margin: 2rem 0.25rem 1rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0 10px;
     animation: fade 0.5s;
+    .title {
+      margin-left: 8px;
+      font-size: 1.15rem;
+      text-shadow: 0 0 5px #00000050;
+    }
+  }
+  .swiper {
+    left: -10px;
+    width: calc(100% + 20px);
+    padding: 5px 10px 0;
+    z-index: 0;
+    .swiper-slide {
+      height: 100%;
+    }
+    .swiper-pagination {
+      position: static;
+      margin-top: 4px;
+      :deep(.swiper-pagination-bullet) {
+        background-color: #fff;
+        width: 18px;
+        height: 4px;
+        border-radius: 4px;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .link-all {
+    height: 220px;
+    .item {
+      height: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      padding: 0 10px;
+      animation: fade 0.5s;
+
+      &:hover {
+        transform: scale(1.02);
+        background: rgb(0 0 0 / 40%);
+        transition: 0.3s;
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+
+      .name {
+        font-size: 1.1rem;
+        margin-left: 8px;
+      }
+      @media (min-width: 720px) and (max-width: 820px) {
+        .name {
+          display: none;
+        }
+      }
+      @media (max-width: 720px) {
+        height: 80px;
+      }
+      @media (max-width: 460px) {
+        flex-direction: column;
+        .name {
+          font-size: 1rem;
+          margin-left: 0;
+          margin-top: 8px;
+        }
+      }
+    }
+    @media (max-width: 720px) {
+      height: 180px;
+    }
   }
 }
 @import url('src/components/css/h.9c69ed6c.css');
