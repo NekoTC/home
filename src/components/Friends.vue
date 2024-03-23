@@ -29,36 +29,17 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      loading: true,
-      links: []
-    };
-  },
-  mounted() {
-    this.fetchLinks();
-  },
-  methods: {
-    fetchLinks() {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://mxapi.nekotc.cn/api/v2/links/all', true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
+import axios from 'axios';
 
-      xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          const data = JSON.parse(xhr.responseText);
-          this.links = data.data;
-          this.loading = false;
-        } else {
-          console.error('请求友链失败' + xhr.status);
-        }
-      };
+axios.get('https://mxapi.nekotc.cn/api/v2/links/all')
+  .then(response => {
+    // 在这里处理返回的 JSON 数据
+    console.log(response.link);
+  })
+  .catch(error => {
+    console.error('发生错误:', error);
+  });
 
-      xhr.send();
-    }
-  }
-};
 </script>
 
 <style lang="scss" scoped>
