@@ -1,4 +1,5 @@
 <template>
+  <div class="gate ch">
     <div class="line">
       <span class="title">朋友们</span>
     </div>
@@ -21,6 +22,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
