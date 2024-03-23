@@ -1,7 +1,7 @@
 <template>
   <div class="gate ch">
     <div class="container links">
-      <h2 class="chtitle">我的<span>好朋友</span>们</h2>
+      <h2>我的<span>好朋友</span>们</h2>
       <!-- 友链 -->
       <div class="clear" id="links">
         <div class="links">
@@ -11,7 +11,7 @@
               <div v-for="link in links" :key="link.id" class="item">
                 <a :href="link.url" target="_blank">
                   <div class="avatar"><img :src="link.avatar" width="64" height="64"></div>
-                  <div class="inner">
+                  <div class="inner" width="256" height="128">
                     <h5 class="name">{{ link.name }}</h5>
                     <p>{{ link.description }}</p>
                   </div>
