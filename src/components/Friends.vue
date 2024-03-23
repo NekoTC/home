@@ -10,9 +10,9 @@
               <div v-for="link in links" :key="link.id" class="item">
                 <a :href="link.url" target="_blank">
                   <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
-                  <div class="inner">
+                  <div class="item">
                     <h5 class="name centered">{{ link.name }}</h5>
-                    <p>{{ link.description }}</p>
+                    <p class="centered">{{ link.description }}</p>
                   </div>
                 </a>
               </div>
@@ -57,7 +57,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* 引入外部 CSS 文件 */
+.link-all {
+  height: 220px;
+  .item {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 10px;
+    animation: fade 0.5s;
+  }
+}
 @import url('src/components/css/h.9c69ed6c.css');
 @import url('src/components/css/nekotora.99cf6f8c.css');
 </style>
