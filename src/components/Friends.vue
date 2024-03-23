@@ -5,7 +5,7 @@
     </div>
     <!-- 友链 -->
     <div class="clear" id="links">
-        <div class="link-all">
+        <div class="item">
           <div v-if="loading">加载中...</div>
           <div v-else>
             <div v-for="link in links" :key="link.id" class="item">
