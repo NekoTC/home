@@ -1,7 +1,6 @@
 <template>
   <div class="gate ch">
-    <div class="container links">
-      <h2>我的<span>好朋友</span>们</h2>
+    <h2>我的<span>好朋友</span>们</h2>
       <!-- 友链 -->
       <div class="clear" id="links">
         <div class="links">
@@ -22,7 +21,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
