@@ -13,7 +13,7 @@
             <div v-else>
               <div v-for="link in links" :key="link.id" class="item">
                 <a :href="link.url" target="_blank">
-                  <div class="avatar"><img :src="link.avatar"></div>
+                  <div class="avatar"><img :src="link.avatar" width="64" height="64"></div>
                   <div class="inner">
                     <h5 class="name">{{ link.name }}</h5>
                     <p>{{ link.description }}</p>
@@ -69,17 +69,14 @@ export default {
     display: flex;
     align-items: center;
     animation: fade 0.5s;
-
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
       text-shadow: 0 0 5px #00000050;
     }
   }
-
   .link-all {
     height: 220px;
-
     .item {
       height: 100px;
       width: 100%;
@@ -98,6 +95,11 @@ export default {
 
       &:active {
         transform: scale(1);
+      }
+
+      .avatar img {
+        width: 64px;
+        height: 64px;
       }
 
       .name {
