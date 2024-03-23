@@ -1,13 +1,14 @@
 <template>
-  <div class="gate ch">
-    <div class="container links">
-      <h2 class="chtitle">我的<span>好朋友</span>们</h2>
+  <div v-if="siteLinks[0]" class="links">
+    <div class="line">
+      <Icon size="20">
+        <Link />
+      </Icon>
+      <span class="title">网站列表</span>
+    </div>
       <!-- 友链 -->
       <div class="clear" id="links">
         <div class="links">
-          <div class="line">
-            <div class="title">友情链接</div>
-          </div>
           <div class="link-all">
             <div v-if="loading">加载中...</div>
             <div v-else>
@@ -29,6 +30,14 @@
 </template>
 
 <script>
+import { Icon } from "@vicons/utils";
+// 可前往 https://www.xicons.org 自行挑选并在此处引入
+import { Link, Blog, CompactDisc, Cloud, Compass, Book, Fire, LaptopCode } from "@vicons/fa"; // 注意使用正确的类别
+import { mainStore } from "@/store";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination, Mousewheel } from "swiper";
+import siteLinks from "@/assets/siteLinks.json";
+
 export default {
   data() {
     return {
@@ -62,6 +71,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* 这里可以继续添加你的样式 */
 .links {
   .line {
     margin: 2rem 0.25rem 1rem;
@@ -109,4 +119,95 @@ export default {
     }
   }
 }
+[class*=" icon-"]:before,
+[class^=icon-]:before {
+  font-family: nekotora;
+  font-style: normal;
+  font-weight: 400;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.icon-search:before {
+  content: "\e800"
+}
+
+.icon-info:before {
+  content: "\e801"
+}
+
+.icon-comment:before {
+  content: "\e802"
+}
+
+.icon-v2ex:before {
+  content: "\e803"
+}
+
+.icon-zhihu:before {
+  content: "\e804"
+}
+
+.icon-bilibili:before {
+  content: "\e805"
+}
+
+.icon-netease_music:before {
+  content: "\e806"
+}
+
+.icon-tencent_qzone:before {
+  content: "\e807"
+}
+
+.icon-mail:before {
+  content: "\e808"
+}
+
+.icon-bookmark:before {
+  content: "\e809"
+}
+
+.icon-link:before {
+  content: "\e80a"
+}
+
+.icon-twitter:before {
+  content: "\f099"
+}
+
+.icon-gplus:before {
+  content: "\f0d5"
+}
+
+.icon-github:before {
+  content: "\f113"
+}
+
+.icon-unlink:before {
+  content: "\f127"
+}
+
+.icon-instagram:before {
+  content: "\f16d"
+}
+
+.icon-weibo:before {
+  content: "\f18a"
+}
+
+.icon-qq:before {
+  content: "\f1d6"
+}
+
 </style>
