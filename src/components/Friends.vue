@@ -9,14 +9,18 @@
             <div v-else>
               <div v-for="link in links" :key="link.id" class="item">
                 <a :href="link.url" target="_blank">
+                  <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
+                  <div class="item">
+                    <h5 class="name centered">{{ link.name }}</h5>
+                    <p class="centered">{{ link.description }}</p>
+                  </div>
                   <div
                     class="item cards"
                     :style="index < 3 ? 'margin-bottom: 20px' : null"
                     @click="jumpLink(item)"
                   >
                     <div class="avatar centered"><img :src="link.avatar" width="64" height="64"></div>
-                    <h5 class="name centered">{{ link.name }}</h5>
-                    <p class="centered">{{ link.description }}</p>
+                    <span class="name text-hidden">{{ link.name }}</span>
                   </div>
                 </a>
               </div>
@@ -145,6 +149,15 @@ export default {
     }
   }
 }
-@import url('src/components/css/h.9c69ed6c.css');
-@import url('src/components/css/nekotora.99cf6f8c.css');
+.gate .links .item .avatar {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  text-align: center;
+  margin-right: 15px;
+  background-color: #353535;
+  overflow: hidden
+}
 </style>
