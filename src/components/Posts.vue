@@ -6,7 +6,7 @@
         <div v-if="loading">加载中...</div>
         <div v-else>
           <div v-for="(link, index) in links.slice(0, 4)" :key="link.id" class="item">
-            <a :href="`https://blog.nekotc.cn/${link.category.slug}/${link.slug}`" target="_blank">
+            <a :href="`https://blog.nekotc.cn/posts/${link.category.slug}/${link.slug}`" target="_blank">
               <div class="inner">
                 <h5>{{ link.title }}</h5>
                 <p>{{ link.created }}</p>
