@@ -1,5 +1,5 @@
 <template>
-  <div :class="store.mobileOpenState ? 'right' : 'right hidden'">
+  <div :class="store.mobileOpenState ? 'right' : 'right hidden'"  style="overflow-y: auto;">
     <!-- 移动端 Logo -->
     <div class="logo text-hidden" @click="store.mobileFuncState = !store.mobileFuncState">
       <span class="bg">{{ siteUrl[0] }}</span>
@@ -39,6 +39,9 @@ const siteUrl = computed(() => {
   // flex: 1 0 0%;
   width: 50%;
   margin-left: 0.75rem;
+  max-height: 800px; /* 或者设置合适的高度 */
+  overflow-y: auto; /* 显示垂直滚动条 */
+  overflow-x: hidden; /* 隐藏水平滚动条 */
   .logo {
     width: 100%;
     font-family: "Pacifico-Regular";
